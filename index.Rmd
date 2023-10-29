@@ -1,5 +1,5 @@
 ---
-title: "Index"
+title: "GitHub Website"
 author: "Troy McSimov"
 date: "`r Sys.Date()`"
 output: html_document
