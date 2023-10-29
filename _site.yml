@@ -1,5 +1,12 @@
-navigation:
-  - text: "Home"
-    url: /index.html
-  - text: "Beer Study"
-    url: /Project-DataExploration-Week8-tmm-1.html
+name: "TMM"
+navbar:
+  title: "GitHub Website"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About Me"
+      href: aboutme.html
+    - text: "Data Science Projects"
+      menu:
+        - text: "Beer Study"
+        - href: Project-DataExploration-Week8-tmm-1.html
