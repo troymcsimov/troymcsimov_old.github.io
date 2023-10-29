@@ -7,8 +7,6 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Including Code
-
 My name is Troy McSimov
 I work and live in the Dallas/Ft. Worth metroplex
 I am a Technology Executive with over 15 years of experience
