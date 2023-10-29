@@ -1,2 +1,0 @@
-# troymcsimov.github.io
-Welcome
