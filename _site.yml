@@ -1,0 +1,8 @@
+name: "Simple"
+navbar:
+  title: "GitHub"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Beer Study"
+      href: Project-DataExploration-Week8-tmm-1.html
