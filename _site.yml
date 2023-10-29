@@ -5,7 +5,7 @@ navbar:
     - text: "Home"
       href: index.html
     - text: "About Me"
-      href: aboutme.html
+      href: aboutme.md
     - text: "Data Science Projects"
       menu:
         - text: "Beer Study"
