@@ -248,7 +248,7 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="aboutme.md">About Me</a>
+  <a href="aboutme.html">About Me</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -355,49 +355,35 @@ brews &lt;- left_join(beers, breweries, by = &quot;Brew_ID&quot;)
 
 # Data validation after merge
 head(brews, n=6) # Looks okay</code></pre>
-<pre><code>##                         Name.x Beer_ID   ABV IBU Brew_ID
-## 1      Abbey&#39;s Single (2015- )    2505 0.049  22      58
-## 2 Abbey&#39;s Single Ale (Current)    1887 0.049  22      58
-## 3                Alaskan Amber    1920 0.053  18     271
-## 4        Altus Bohemes Altbier    1597 0.053  NA     365
-## 5        Main St. Virginia Ale    2377 0.050  40     123
-## 6        Main St. Virginia Ale    1248 0.050  40     123
-##              Style Ounces                              Name.y
-## 1 Abbey Single Ale     12                     Destihl Brewery
-## 2 Abbey Single Ale     12                     Destihl Brewery
-## 3          Altbier     12             Alaskan Brewing Company
-## 4          Altbier     12                    Bohemian Brewery
-## 5          Altbier     12 Center of the Universe Brewing C...
-## 6          Altbier     12 Center of the Universe Brewing C...
-##          City State
-## 1 Bloomington    IL
-## 2 Bloomington    IL
-## 3      Juneau    AK
-## 4     Midvale    UT
-## 5     Ashland    VA
-## 6     Ashland    VA</code></pre>
+<pre><code>##                         Name.x Beer_ID   ABV IBU Brew_ID            Style Ounces
+## 1      Abbey&#39;s Single (2015- )    2505 0.049  22      58 Abbey Single Ale     12
+## 2 Abbey&#39;s Single Ale (Current)    1887 0.049  22      58 Abbey Single Ale     12
+## 3                Alaskan Amber    1920 0.053  18     271          Altbier     12
+## 4        Altus Bohemes Altbier    1597 0.053  NA     365          Altbier     12
+## 5        Main St. Virginia Ale    2377 0.050  40     123          Altbier     12
+## 6        Main St. Virginia Ale    1248 0.050  40     123          Altbier     12
+##                                Name.y        City State
+## 1                     Destihl Brewery Bloomington    IL
+## 2                     Destihl Brewery Bloomington    IL
+## 3             Alaskan Brewing Company      Juneau    AK
+## 4                    Bohemian Brewery     Midvale    UT
+## 5 Center of the Universe Brewing C...     Ashland    VA
+## 6 Center of the Universe Brewing C...     Ashland    VA</code></pre>
 <pre class="r"><code>tail(brews, n=6) # Looks okay</code></pre>
-<pre><code>##                              Name.x Beer_ID   ABV IBU Brew_ID
-## 2405          Wild Onion Summer Wit     398 0.042  13     362
-## 2406                Special Release    2210    NA  NA      30
-## 2407 Kilt Lifter Scottish-Style Ale    1635 0.060  21     161
-## 2408                  OktoberFiesta    2527 0.053  27      67
-## 2409                 The CROWLERâ„¢    1796    NA  27     167
-## 2410           CAN&#39;D AID Foundation    1790    NA  NA     167
-##             Style Ounces                     Name.y
-## 2405      Witbier     12 Wild Onion Brewing Company
-## 2406                  16        Cedar Creek Brewery
-## 2407 Scottish Ale     12 Four Peaks Brewing Company
-## 2408       Marzen     12   Freetail Brewing Company
-## 2409                  32        Oskar Blues Brewery
-## 2410                  12        Oskar Blues Brewery
-##                 City State
-## 2405 Lake Barrington    IL
-## 2406    Seven Points    TX
-## 2407           Tempe    AZ
-## 2408     San Antonio    TX
-## 2409        Longmont    CO
-## 2410        Longmont    CO</code></pre>
+<pre><code>##                              Name.x Beer_ID   ABV IBU Brew_ID        Style Ounces
+## 2405          Wild Onion Summer Wit     398 0.042  13     362      Witbier     12
+## 2406                Special Release    2210    NA  NA      30                  16
+## 2407 Kilt Lifter Scottish-Style Ale    1635 0.060  21     161 Scottish Ale     12
+## 2408                  OktoberFiesta    2527 0.053  27      67       Marzen     12
+## 2409                 The CROWLERâ„¢    1796    NA  27     167                  32
+## 2410           CAN&#39;D AID Foundation    1790    NA  NA     167                  12
+##                          Name.y            City State
+## 2405 Wild Onion Brewing Company Lake Barrington    IL
+## 2406        Cedar Creek Brewery    Seven Points    TX
+## 2407 Four Peaks Brewing Company           Tempe    AZ
+## 2408   Freetail Brewing Company     San Antonio    TX
+## 2409        Oskar Blues Brewery        Longmont    CO
+## 2410        Oskar Blues Brewery        Longmont    CO</code></pre>
 </div>
 <div id="address-the-missing-values-in-each-column."
 class="section level2">
@@ -541,19 +527,15 @@ Kentucky.</h3>
 <pre class="r"><code>max_ABV &lt;- which(filtered_brews$ABV == max(filtered_brews$ABV))
 max_IBU &lt;- which(filtered_brews$IBU == max(filtered_brews$IBU))
 filtered_brews[max_ABV, ]</code></pre>
-<pre><code>##                                                    Name.x
-## 2172 Lee Hill Series Vol. 5 - Belgian Style Quadrupel Ale
-##      Beer_ID   ABV IBU Brew_ID            Style Ounces
-## 2172    2565 0.128  24      52 Quadrupel (Quad)   19.2
-##                       Name.y    City State
-## 2172 Upslope Brewing Company Boulder    CO</code></pre>
+<pre><code>##                                                    Name.x Beer_ID   ABV IBU Brew_ID
+## 2172 Lee Hill Series Vol. 5 - Belgian Style Quadrupel Ale    2565 0.128  24      52
+##                 Style Ounces                  Name.y    City State
+## 2172 Quadrupel (Quad)   19.2 Upslope Brewing Company Boulder    CO</code></pre>
 <pre class="r"><code>filtered_brews[max_IBU, ]</code></pre>
 <pre><code>##                        Name.x Beer_ID   ABV IBU Brew_ID
 ## 427 Bitter Bitch Imperial IPA     980 0.082 138     375
-##                              Style Ounces
-## 427 American Double / Imperial IPA     12
-##                      Name.y    City State
-## 427 Astoria Brewing Company Astoria    OR</code></pre>
+##                              Style Ounces                  Name.y    City State
+## 427 American Double / Imperial IPA     12 Astoria Brewing Company Astoria    OR</code></pre>
 </div>
 </div>
 <div
@@ -579,14 +561,11 @@ abline(v = mean(filtered_brews$ABV)*100, col = &quot;Salmon&quot;, lwd = 2)</cod
   labs(x = &quot;ABV(%)&quot;, y = &quot;Count&quot;,
        title = &quot;Alcohol by Volume ABV(%) Distribution&quot;) +
   theme_minimal() + scale_x_continuous(labels=percent) + geom_vline(xintercept = median(filtered_brews$ABV), color = &quot;blue&quot;, size = 1) + geom_vline(xintercept = mean(filtered_brews$ABV), color = &quot;dark green&quot;, size = 1)</code></pre>
-<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2
-## 3.4.0.
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ## ℹ Please use `linewidth` instead.
 ## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this
-## warning was generated.</code></pre>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with
-## `binwidth`.</code></pre>
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="Project-DataExploration-Week8-tmm-1_files/figure-html/ABV-2.png" width="672" /></p>
 </div>
 </div>
@@ -661,10 +640,8 @@ print(paste(&quot;Accuracy: &quot;, round(accuracy * 100, 2), &quot;%&quot;, sep
   theme_minimal() +
 theme(axis.title.x=element_blank(),
         axis.text.x=element_text(angle=90, vjust = 0.25, hjust=1))</code></pre>
-<pre><code>## Warning: Removed 6 rows containing missing values
-## (`position_stack()`).</code></pre>
-<pre><code>## Warning: Removed 6 rows containing missing values
-## (`geom_text()`).</code></pre>
+<pre><code>## Warning: Removed 6 rows containing missing values (`position_stack()`).</code></pre>
+<pre><code>## Warning: Removed 6 rows containing missing values (`geom_text()`).</code></pre>
 <p><img src="Project-DataExploration-Week8-tmm-1_files/figure-html/KNNanalysis-1.png" width="672" /></p>
 <pre class="r"><code>ggplot(data = filtered_brews, aes(x=Style_Class, y=ABV*100, fill = Style_Class)) + geom_boxplot(width = 0.5) + theme_minimal() + theme(legend.position = &quot;none&quot;) + xlab(&quot;Beer Style&quot;) + ylab (&quot;Alcohol content, ABV (%)&quot;) + ggtitle (&quot;Boxplot of ABV(%) vs. Beer Style&quot;) + geom_hline(yintercept = 6, color = &quot;dark green&quot;, size = 0.7) </code></pre>
 <p><img src="Project-DataExploration-Week8-tmm-1_files/figure-html/KNNanalysis-2.png" width="672" /></p>
@@ -693,70 +670,52 @@ the state, which tend to have a higher IBU value.</h2>
 ## 
 ## 
 ## locale:
-## [1] LC_COLLATE=English_United States.utf8 
-## [2] LC_CTYPE=English_United States.utf8   
-## [3] LC_MONETARY=English_United States.utf8
-## [4] LC_NUMERIC=C                          
+## [1] LC_COLLATE=English_United States.utf8  LC_CTYPE=English_United States.utf8   
+## [3] LC_MONETARY=English_United States.utf8 LC_NUMERIC=C                          
 ## [5] LC_TIME=English_United States.utf8    
 ## 
 ## time zone: America/Chicago
 ## tzcode source: internal
 ## 
 ## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods  
-## [7] base     
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] class_7.3-22     caret_6.0-94     lattice_0.21-8  
-##  [4] scales_1.2.1     kableExtra_1.3.4 corrr_0.4.4     
-##  [7] ggpubr_0.6.0     ggplot2_3.4.3    stringr_1.5.0   
-## [10] dplyr_1.1.2      knitr_1.43       rmarkdown_2.24  
+##  [1] class_7.3-22     caret_6.0-94     lattice_0.21-8   scales_1.2.1    
+##  [5] kableExtra_1.3.4 corrr_0.4.4      ggpubr_0.6.0     ggplot2_3.4.3   
+##  [9] stringr_1.5.0    dplyr_1.1.2      knitr_1.43       rmarkdown_2.24  
+## [13] markdown_1.8    
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_1.2.0     viridisLite_0.4.2   
-##  [3] timeDate_4022.108    farver_2.1.1        
-##  [5] fastmap_1.1.1        pROC_1.18.4         
-##  [7] digest_0.6.33        rpart_4.1.19        
-##  [9] timechange_0.2.0     lifecycle_1.0.3     
-## [11] survival_3.5-5       magrittr_2.0.3      
-## [13] compiler_4.3.1       rlang_1.1.1         
-## [15] sass_0.4.7           tools_4.3.1         
-## [17] utf8_1.2.3           yaml_2.3.7          
-## [19] data.table_1.14.8    ggsignif_0.6.4      
-## [21] labeling_0.4.2       plyr_1.8.8          
-## [23] xml2_1.3.5           abind_1.4-5         
-## [25] withr_2.5.0          purrr_1.0.2         
-## [27] stats4_4.3.1         nnet_7.3-19         
-## [29] grid_4.3.1           fansi_1.0.4         
-## [31] colorspace_2.1-0     future_1.33.0       
-## [33] globals_0.16.2       iterators_1.0.14    
-## [35] MASS_7.3-60          cli_3.6.1           
-## [37] crayon_1.5.2         generics_0.1.3      
-## [39] rstudioapi_0.15.0    future.apply_1.11.0 
-## [41] reshape2_1.4.4       httr_1.4.7          
-## [43] cachem_1.0.8         splines_4.3.1       
-## [45] parallel_4.3.1       rvest_1.0.3         
-## [47] vctrs_0.6.3          hardhat_1.3.0       
-## [49] webshot_0.5.5        Matrix_1.6-1.1      
-## [51] jsonlite_1.8.7       carData_3.0-5       
-## [53] car_3.1-2            rstatix_0.7.2       
-## [55] listenv_0.9.0        systemfonts_1.0.4   
-## [57] foreach_1.5.2        gower_1.0.1         
-## [59] tidyr_1.3.0          jquerylib_0.1.4     
-## [61] recipes_1.0.8        parallelly_1.36.0   
-## [63] glue_1.6.2           codetools_0.2-19    
-## [65] lubridate_1.9.2      stringi_1.7.12      
-## [67] gtable_0.3.4         munsell_0.5.0       
-## [69] tibble_3.2.1         pillar_1.9.0        
-## [71] htmltools_0.5.6      ipred_0.9-14        
-## [73] lava_1.7.2.1         R6_2.5.1            
-## [75] evaluate_0.21        highr_0.10          
-## [77] backports_1.4.1      broom_1.0.5         
-## [79] bslib_0.5.1          Rcpp_1.0.11         
-## [81] svglite_2.1.1        nlme_3.1-162        
-## [83] prodlim_2023.08.28   mgcv_1.8-42         
-## [85] xfun_0.40            ModelMetrics_1.2.2.2
-## [87] pkgconfig_2.0.3</code></pre>
+##  [1] pROC_1.18.4          rlang_1.1.1          magrittr_2.0.3      
+##  [4] compiler_4.3.1       mgcv_1.8-42          systemfonts_1.0.4   
+##  [7] vctrs_0.6.3          reshape2_1.4.4       rvest_1.0.3         
+## [10] pkgconfig_2.0.3      crayon_1.5.2         fastmap_1.1.1       
+## [13] backports_1.4.1      labeling_0.4.2       utf8_1.2.3          
+## [16] prodlim_2023.08.28   purrr_1.0.2          xfun_0.40           
+## [19] cachem_1.0.8         jsonlite_1.8.7       recipes_1.0.8       
+## [22] highr_0.10           broom_1.0.5          parallel_4.3.1      
+## [25] R6_2.5.1             bslib_0.5.1          stringi_1.7.12      
+## [28] parallelly_1.36.0    car_3.1-2            rpart_4.1.19        
+## [31] lubridate_1.9.2      jquerylib_0.1.4      Rcpp_1.0.11         
+## [34] iterators_1.0.14     future.apply_1.11.0  Matrix_1.6-1.1      
+## [37] splines_4.3.1        nnet_7.3-19          timechange_0.2.0    
+## [40] tidyselect_1.2.0     rstudioapi_0.15.0    abind_1.4-5         
+## [43] yaml_2.3.7           timeDate_4022.108    codetools_0.2-19    
+## [46] listenv_0.9.0        tibble_3.2.1         plyr_1.8.8          
+## [49] withr_2.5.0          evaluate_0.21        future_1.33.0       
+## [52] survival_3.5-5       xml2_1.3.5           pillar_1.9.0        
+## [55] carData_3.0-5        foreach_1.5.2        stats4_4.3.1        
+## [58] generics_0.1.3       munsell_0.5.0        globals_0.16.2      
+## [61] glue_1.6.2           tools_4.3.1          data.table_1.14.8   
+## [64] ModelMetrics_1.2.2.2 gower_1.0.1          webshot_0.5.5       
+## [67] ggsignif_0.6.4       grid_4.3.1           tidyr_1.3.0         
+## [70] ipred_0.9-14         colorspace_2.1-0     nlme_3.1-162        
+## [73] cli_3.6.1            fansi_1.0.4          viridisLite_0.4.2   
+## [76] svglite_2.1.1        lava_1.7.2.1         gtable_0.3.4        
+## [79] rstatix_0.7.2        sass_0.4.7           digest_0.6.33       
+## [82] farver_2.1.1         htmltools_0.5.6      lifecycle_1.0.3     
+## [85] hardhat_1.3.0        httr_1.4.7           MASS_7.3-60</code></pre>
 </div>
 
 
