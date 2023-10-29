@@ -9,7 +9,6 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# This is a new website
-## Note the YAML lines above
-### Knit this to html
-Push index.html to GitHub
+# GitHub website by Troy McSimov
+## LinkedIn Profile
+https://www.linkedin.com/in/troy-mcsimov/
