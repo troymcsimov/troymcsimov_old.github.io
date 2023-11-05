@@ -9,7 +9,7 @@ navbar:
     - text: "Data Science Projects"
       href: 
       menu:
-      - text: "Beer Study - Project Page"
-        href: Project-DataExploration-Week8-tmm-1.html
-      - text: "Beer App 1"
-      	href: https://troymcsimov.shinyapps.io/Beer4myHorses/
+        - text: "Beer Study - Project Page"
+          href: Project-DataExploration-Week8-tmm-1.html
+        - text: "Beer App 1"
+          href: https://troymcsimov.shinyapps.io/Beer4myHorses
